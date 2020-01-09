@@ -1,5 +1,5 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "slap",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,8 @@
     "format": "prettier --single-quote --write \"src/**/*.{html,css,js}\"",
     "server": "nodemon server/main.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "slap",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
