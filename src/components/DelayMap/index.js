@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker, Layer } from 'react-map-gl'
-
 import './index.css'
+const axios = require('axios').default
 
 export default function DelayMap() {
   const MAPBOX_TOKEN =
@@ -13,6 +13,21 @@ export default function DelayMap() {
     longitude: 15.06324,
     zoom: 6
   })
+  const [knockOn, setKnockOn] = useState()
+  loadKnockOnDelays()
+
+  function loadKnockOnDelays() {
+    axios.get('http://localhost:8000/knock-on').then(function(response) {
+      let markers = response.data.disruptions.map(function(knock) {
+        let lat = knock.station.lat
+        let lng = knock.station.lng
+        let delayCount = knock.delaycount
+        return { latitude: lat, longitude: lng, count: delayCount }
+      })
+      setKnockOn(markers)
+      console.log(knockOn)
+    })
+  }
 
   return (
     <ReactMapGL
@@ -22,6 +37,20 @@ export default function DelayMap() {
       mapStyle="mapbox://styles/strazan1/ck5h43imr02up1io7x81z9v5i"
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
-    ></ReactMapGL>
+    >
+      {knockOn &&
+        knockOn.map(pos => {
+          return (
+            <Marker latitude={pos.latitude} longitude={pos.longitude}>
+              {pos.count}
+            </Marker>
+          )
+        })
+
+      /* <Marker latitude={viewport.latitude} longitude={viewport.longitude}>
+        HEJ
+      </Marker> */
+      }
+    </ReactMapGL>
   )
 }
