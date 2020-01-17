@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import ReactMapGL, { Marker, Layer } from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 import './index.css'
 const axios = require('axios').default
 
 export default function DelayMap() {
+  const [isLoaded, setIsLoaded] = useState()
   const MAPBOX_TOKEN =
     'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
   const [viewport, setViewport] = useState({
@@ -14,19 +15,22 @@ export default function DelayMap() {
     zoom: 6
   })
   const [knockOn, setKnockOn] = useState()
-  loadKnockOnDelays()
 
-  function loadKnockOnDelays() {
+  if (!isLoaded) {
     axios.get('http://localhost:8000/knock-on').then(function(response) {
       let markers = response.data.disruptions.map(function(knock) {
         let lat = knock.station.lat
         let lng = knock.station.lng
         let delayCount = knock.delaycount
-        return { latitude: lat, longitude: lng, count: delayCount }
+        return {
+          latitude: parseFloat(lat),
+          longitude: parseFloat(lng),
+          count: delayCount
+        }
       })
       setKnockOn(markers)
-      console.log(knockOn)
     })
+    setIsLoaded(true)
   }
 
   return (
@@ -38,19 +42,15 @@ export default function DelayMap() {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      {knockOn &&
-        knockOn.map(pos => {
-          return (
-            <Marker latitude={pos.latitude} longitude={pos.longitude}>
-              {pos.count}
-            </Marker>
-          )
-        })
-
-      /* <Marker latitude={viewport.latitude} longitude={viewport.longitude}>
-        HEJ
-      </Marker> */
-      }
+      {knockOn
+        ? knockOn.map((pos, i) => {
+            return (
+              <Marker key={i} latitude={pos.latitude} longitude={pos.longitude}>
+                {<p>{pos.count}</p>}
+              </Marker>
+            )
+          })
+        : ''}
     </ReactMapGL>
   )
 }
