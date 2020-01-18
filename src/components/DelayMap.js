@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
-import './index.css'
+import './../style/delayMap.css'
 const axios = require('axios').default
 
 export default function DelayMap() {
