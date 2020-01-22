@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL from 'react-map-gl'
 import './../style/delayMap.css'
 const axios = require('axios').default
 
@@ -13,27 +13,9 @@ export default function DelayMap() {
     longitude: 15.06324,
     zoom: 6
   })
-  const [knockOn, setKnockOn] = useState()
 
   useEffect(() => {
-    axios.get('http://localhost:8000/knock-on').then(response => {
-      console.log(response.data)
-      let markers = response.data.disruptions.map(knock => {
-        let lat = knock.station.lat
-        let lng = knock.station.lng
-        let delayCount = knock.delaycount
-        return {
-          latitude: parseFloat(lat),
-          longitude: parseFloat(lng),
-          count: delayCount
-        }
-      })
-      setKnockOn(markers)
-    })
-  }, [])
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/prognosis').then(response => {
+    axios.get('http://localhost:8000/delay').then(response => {
       console.log(response)
     })
   }, [])
@@ -47,15 +29,7 @@ export default function DelayMap() {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      {knockOn
-        ? knockOn.map((pos, i) => {
-            return (
-              <Marker key={i} latitude={pos.latitude} longitude={pos.longitude}>
-                {<p>{pos.count}</p>}
-              </Marker>
-            )
-          })
-        : ''}
+      {}
     </ReactMapGL>
   )
 }
