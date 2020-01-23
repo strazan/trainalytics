@@ -24,13 +24,14 @@ async function getPrognosis(obj) {
 }
 
 function getPosition(signature) {
-  let stringPos = _stations.filter(
+  let pos = _stations.filter(
     station =>
       station.LocationSignature.toLowerCase() === signature.toLowerCase()
-  )[0].Geometry.WGS84
-
-  let lng = stringPos.slice(7, 25)
-  let lat = stringPos.slice(26, 44)
+  )
+  let stringPos = ''
+  pos ? (stringPos = pos[0].Geometry.WGS84) : (stringPos = '')
+  let lng = parseFloat(stringPos.slice(7, 25))
+  let lat = parseFloat(stringPos.slice(26, 44))
   return { longitude: lng, latitude: lat }
 }
 
