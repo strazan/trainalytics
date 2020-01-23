@@ -29,7 +29,7 @@ function getPosition(signature) {
       station.LocationSignature.toLowerCase() === signature.toLowerCase()
   )
   let stringPos = ''
-  pos ? (stringPos = pos[0].Geometry.WGS84) : (stringPos = '')
+  pos && pos[0] ? (stringPos = pos[0].Geometry.WGS84) : (stringPos = '')
   let lng = parseFloat(stringPos.slice(7, 25))
   let lat = parseFloat(stringPos.slice(26, 44))
   return { longitude: lng, latitude: lat }

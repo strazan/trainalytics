@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL from 'react-map-gl'
-import './../style/delayMap.css'
+import './style/Map.scss'
 import SideNav from './SideNav'
 import InfoTab from './InfoTab'
 const axios = require('axios').default
