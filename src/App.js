@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './App.css'
-import DelayMap from './components/DelayMap'
-const axios = require('axios').default
+import Map from './components/Map'
 
 function App() {
   return (
     <div className="App">
-      <DelayMap />
+      <Map />
     </div>
   )
 }

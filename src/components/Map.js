@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL from 'react-map-gl'
 import './../style/delayMap.css'
+import SideNav from './SideNav'
+import InfoTab from './InfoTab'
 const axios = require('axios').default
 
-export default function DelayMap() {
+export default function Map() {
   const MAPBOX_TOKEN =
     'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
   const [viewport, setViewport] = useState({
@@ -25,11 +27,16 @@ export default function DelayMap() {
       {...viewport}
       width="100vw"
       height="100vh"
-      mapStyle="mapbox://styles/strazan1/ck5h43imr02up1io7x81z9v5i"
+      mapStyle="mapbox://styles/strazan1/ck5o56ci700vv1iqfw5w2swpc"
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      {}
+      {
+        <div style={{ display: 'flex' }}>
+          <SideNav />
+          <InfoTab />
+        </div>
+      }
     </ReactMapGL>
   )
 }
