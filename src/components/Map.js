@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL from 'react-map-gl'
-import './../style/delayMap.css'
+import './style/delayMap.css'
 import SideNav from './SideNav'
 import InfoTab from './InfoTab'
+import Clock from './Clock'
 const axios = require('axios').default
 
 export default function Map() {
@@ -35,6 +36,7 @@ export default function Map() {
         <div style={{ display: 'flex' }}>
           <SideNav />
           <InfoTab />
+          <Clock />
         </div>
       }
     </ReactMapGL>
