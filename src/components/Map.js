@@ -3,6 +3,7 @@ import ReactMapGL from 'react-map-gl'
 import './style/Map.scss'
 import SideNav from './SideNav'
 import InfoTab from './InfoTab'
+import DelayMarkers from './DelayMarkers'
 const axios = require('axios').default
 
 export default function Map() {
@@ -31,6 +32,7 @@ export default function Map() {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
+      <DelayMarkers />
       {
         <div style={{ display: 'flex' }}>
           <SideNav />
