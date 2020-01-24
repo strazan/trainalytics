@@ -5,7 +5,7 @@ import RouteSelection from './RouteSelection'
 export default function SideNav({ delays }) {
   return (
     <div className="SideNav">
-      <div className="arrow">
+      <div className="SideNavHeader">
         <h1>Trainalytics</h1>
       </div>
       <RouteSelection delays={delays} />
