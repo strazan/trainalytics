@@ -1,8 +1,9 @@
 @import '../../base/_color.scss';
 @import '../../base/_text.scss';
+@import '../../base/index.scss';
 
 .SideNav {
-  width: 289px;
+  width: 290px;
   height: 100vh;
   background-color: $secondary-white;
   box-shadow: 10px 0px 20px rgba(166, 166, 166, 0.25);
@@ -12,21 +13,23 @@
     font-size: $logo-font-size;
     line-height: $line-height;
     color: $secondary-black;
-    margin-left: 12px;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
 
     &::after {
       position: absolute;
       content: '';
       display: block;
       background-color: $secondary-gray;
-      width: 119px;
+      width: 290px;
       height: 2px;
-      left: 60px;
-      top: 72px;
+      background-color: transparent;
+      left: 0;
+      top: 4.5rem;
+      box-shadow: 0px 5px 6px rgb(207, 207, 207);
     }
   }
-  .arrow {
+  .SideNavHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;

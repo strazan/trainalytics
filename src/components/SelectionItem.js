@@ -4,9 +4,15 @@ import './style/SelectionItem.scss'
 export default function SelectionItem({ route, isOnTime }) {
   return (
     <div className="selectionItem">
-      <h2 className=".text-small .text-color-gray">{route}</h2>
-      <span></span>
-      <h2 className=".text-small .text-color-gray">{isOnTime}</h2>
+      <div className="routeContainer">
+        <p className="text-normal text-color-gray">{route}</p>
+      </div>
+      <span
+        className={isOnTime ? 'background-color-green' : 'background-color-red'}
+      ></span>
+      <p className="text-normal text-color-gray ">
+        {isOnTime ? 'On time' : 'Delayed'}
+      </p>
     </div>
   )
 }
