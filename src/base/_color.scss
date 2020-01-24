@@ -1,0 +1,71 @@
+$primary-black: #222431;
+$secondary-black: #292b3c;
+$primary-white: #f8f8f8;
+$secondary-white: #f2f2f2;
+$primary-gray: #bdbdbd;
+$secondary-gray: #e0e0e0;
+$red: #eb5757;
+$orange: #f2994a;
+$yellow: #f2c94c;
+$green: #27ae60;
+$blue: #2f80ed;
+$purple: #9b51e0;
+$i-Btn-color: #272f4a;
+$drop-shadow-color: #a6a6a6;
+
+.background-primary {
+  background-color: $secondary-white;
+}
+.background-light {
+  background-color: $primary-white;
+}
+.info-btn-color {
+  background-color: $i-Btn-color;
+}
+
+// Procent change colors
+.sixty-color {
+  color: $red;
+}
+.eighty-color {
+  color: $orange;
+}
+.hundred-color {
+  color: $green;
+}
+
+//Text colors
+.text-color-primary {
+  color: $primary-black;
+}
+.text-color-gray {
+  color: $primary-gray;
+}
+
+//SideNav color change
+.ontime-color {
+  background-color: $green;
+}
+.delay-color {
+  background-color: $red;
+}
+
+//Fast classes for colors
+.color-red {
+  color: $red;
+}
+.color-orange {
+  color: $orange;
+}
+.color-yellow {
+  color: $yellow;
+}
+.color-green {
+  color: $green;
+}
+.color-blue {
+  color: $blue;
+}
+.color-purple {
+  color: $purple;
+}

@@ -1,0 +1,39 @@
+$font-family: 'Archivo Narrow', sans-serif;
+$font-size: 1.5rem;
+$font-size-big: 2rem;
+$font-size-small: 0.85rem;
+$logo-font-size: 1.7rem;
+$line-height: 18px;
+
+//For train station
+.text-header {
+  font-family: $font-family;
+  font-size: $font-size-big;
+  line-height: $line-height;
+}
+//For SideNav mainly
+.text-normal {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+//For smaller text in Log
+.text-small {
+  font-family: $font-family;
+  font-size: $font-size-small;
+  line-height: $line-height;
+}
+//Trainalytics
+.logo-text {
+  font-family: $font-family;
+  font-size: $logo-font-size;
+  line-height: $line-height;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
