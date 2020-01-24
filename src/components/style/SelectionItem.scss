@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap');
+@import '../../base/_color.scss';
+@import '../../base/_text.scss';
+
+.selectionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin: 0.6rem 0;
+
+  /* identical to box height */
+
+  span {
+    display: block;
+    height: 10px;
+    width: 10px;
+    background-color: $green;
+    transform: rotate(45deg);
+  }
+}
