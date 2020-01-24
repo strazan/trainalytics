@@ -1,9 +1,14 @@
 import React from 'react'
+import './style/SideNav.scss'
+import RouteSelection from './RouteSelection'
 
-export default function SideNav() {
+export default function SideNav({ delays }) {
   return (
-    <div
-      style={{ width: '22rem', height: '100vh', backgroundColor: '#bbb' }}
-    ></div>
+    <div className="SideNav">
+      <div className="arrow">
+        <h1>Trainalytics</h1>
+      </div>
+      <RouteSelection delays={delays} />
+    </div>
   )
 }

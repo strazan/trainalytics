@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactMapGL from 'react-map-gl'
 import './style/Map.scss'
-import SideNav from './SideNav'
-import InfoTab from './InfoTab'
-import DelayMarkers from './DelayMarkers'
-const axios = require('axios').default
 
 export default function Map() {
   const MAPBOX_TOKEN =
@@ -17,12 +13,6 @@ export default function Map() {
     zoom: 6
   })
 
-  useEffect(() => {
-    axios.get('http://localhost:8000/delay').then(response => {
-      console.log(response)
-    })
-  }, [])
-
   return (
     <ReactMapGL
       {...viewport}
@@ -31,14 +21,6 @@ export default function Map() {
       mapStyle="mapbox://styles/strazan1/ck5o56ci700vv1iqfw5w2swpc"
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
-    >
-      <DelayMarkers />
-      {
-        <div style={{ display: 'flex' }}>
-          <SideNav />
-          <InfoTab />
-        </div>
-      }
-    </ReactMapGL>
+    ></ReactMapGL>
   )
 }
