@@ -1,22 +1,16 @@
-.clock h3 hr {
-    width: 241px;
-    height: 120px;
-    position: absolute;
-    text-align: center;
-    align-items: center;
-//     border: solid 1px #111;
-    margin: 5px;
-    margin-top: 30px;
-    right: 30px;
+@import '../../base/index.scss';
 
+.clock {
+   width: 240px;
+   position: absolute;
+   align-items: center;
+   margin: 10px;
+   margin-top: 30px;
+   font-weight: normal;
+   right: 0;
+   text-align: center;
 }
-//     background: #111;
 
-.digital-clock h3 {
-     
- }
-
- 
 
 
 

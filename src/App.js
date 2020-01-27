@@ -5,6 +5,7 @@ import './base/_text.scss'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'
+import Clock from './components/Clock'
 const axios = require('axios').default
 
 function App() {
@@ -17,10 +18,12 @@ function App() {
   return (
     <div className="App">
       <Map />
-      <div style={{ position: 'fixed', top: '0', left: '0', display: 'flex' }}>
+      <div style={{ position: 'fixed', top: '0', left: '0', display: 'flex', width:'100%' }}>
         <SideNav delays={delays} />
         <InfoTab />
+        <Clock />
       </div>
+   
     </div>
   )
 }

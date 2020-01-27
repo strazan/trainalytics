@@ -1,0 +1,11 @@
+@import '../../base/index.scss';
+
+
+.clock {
+   opacity: 0.85;
+}
+
+.clock hr {
+   border: 0.3px solid black;
+   margin: 10px;  
+}
