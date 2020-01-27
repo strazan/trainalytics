@@ -1,0 +1,10 @@
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+h1 {
+  color: rgb(228, 228, 228);
+  font-weight: 100;
+}
+.mapboxgl-ctrl-bottom-right {
+  display: none !important;
+}
