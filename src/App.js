@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import './base/_color.scss'
-import './base/_text.scss'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'

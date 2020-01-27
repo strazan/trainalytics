@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap');
 $font-family: 'Archivo Narrow', sans-serif;
-$font-size: 1.5rem;
+$font-size: 1.2rem;
 $font-size-big: 2rem;
 $font-size-small: 0.85rem;
 $logo-font-size: 1.7rem;
@@ -14,6 +14,7 @@ $line-height: 18px;
 }
 //For SideNav mainly
 .text-normal {
+  font-weight: 100;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
