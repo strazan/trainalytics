@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ReactMapGL from 'react-map-gl'
 import './style/Map.scss'
+import DelayMarkers from './DelayMarkers'
 
-export default function Map() {
+export default function Map({ delays }) {
   const MAPBOX_TOKEN =
     'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
   const [viewport, setViewport] = useState({
@@ -10,7 +11,8 @@ export default function Map() {
     height: 400,
     latitude: 59.334591,
     longitude: 15.06324,
-    zoom: 6
+    zoom: 6,
+    pitch: 40
   })
 
   return (
@@ -21,6 +23,8 @@ export default function Map() {
       mapStyle="mapbox://styles/strazan1/ck5o56ci700vv1iqfw5w2swpc"
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
-    ></ReactMapGL>
+    >
+      <DelayMarkers delays={delays} />
+    </ReactMapGL>
   )
 }

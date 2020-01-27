@@ -16,7 +16,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Map />
+      <Map delays={delays} />
       <div style={{ position: 'fixed', top: '0', left: '0', display: 'flex' }}>
         <SideNav delays={delays} />
         <InfoTab />
