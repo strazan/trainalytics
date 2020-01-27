@@ -10,10 +10,12 @@ export default function Map({ delays }) {
     width: 400,
     height: 400,
     latitude: 59.334591,
-    longitude: 15.06324,
-    zoom: 6,
+    longitude: 11.06324,
+    zoom: 5.4,
     pitch: 40
   })
+  // const [focusedDelay, setFocusedDelay] = useState();
+  // if (pressedDelay !== focusedDelay) setFocusedDelay(pressedDelay);
 
   return (
     <ReactMapGL
