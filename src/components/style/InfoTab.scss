@@ -1,1 +1,9 @@
 @import './../../base/index.scss';
+
+.active {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
