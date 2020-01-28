@@ -3,13 +3,8 @@ import { InfoTabContext } from './InfoTabContext'
 import Log from './Log'
 import './style/InfoTab.scss'
 
-export default function InfoTab({ delays }) {
-  const { activedelay, setclickdelay, index, setIndex } = useContext(
-    InfoTabContext
-  )
-
-  const station = () => Object.keys(delays.delay.station)[index]
-
+export default function InfoTab({ activeDelay }) {
+  console.log(activeDelay)
   return (
     <div
       className={activedelay ? 'active' : 'hidden'}
