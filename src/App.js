@@ -15,7 +15,11 @@ function App() {
   }, []);
   return (
     <div className="App">
+<<<<<<< Updated upstream
       <Map />
+=======
+      <Map delays={delays} activeDelay={activeDelay} />
+>>>>>>> Stashed changes
       <div
         style={{
           position: "fixed",
