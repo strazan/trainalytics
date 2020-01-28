@@ -8,6 +8,7 @@ const axios = require('axios').default
 
 function App() {
   const [delays, setDelays] = useState()
+  const [activeDelay, setActiveDelay] = useState()
   useEffect(() => {
     axios.get('http://localhost:8000/delay').then(response => {
       setDelays(response)
@@ -25,8 +26,8 @@ function App() {
           width: '100%'
         }}
       >
-        <SideNav delays={delays} />
-        <InfoTab />
+        <SideNav delays={delays} setActiveDelay={setActiveDelay} />
+        <InfoTab activeDelay={activeDelay} />
         <Clock />
       </div>
     </div>
