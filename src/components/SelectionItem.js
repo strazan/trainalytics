@@ -10,7 +10,7 @@ export default function SelectionItem({ route, isOnTime }) {
       <span
         className={isOnTime ? 'background-color-green' : 'background-color-red'}
       ></span>
-      <p className="text-normal text-color-gray ">
+      <p className="isOnTime text-normal text-color-gray ">
         {isOnTime ? 'On time' : 'Delayed'}
       </p>
     </div>
