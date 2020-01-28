@@ -10,7 +10,8 @@ async function getPrognosis(obj) {
   for await (const [i, o] of enumerate(obj.prognosis)) {
     const station = getStation(trainSignatures[i])
     const pos = getPosition(trainSignatures[i])
-    const route = await getRoute(trainNumbers[i])
+    const route =
+      i < 3 ? await getRoute(trainNumbers[i]) : 'Stockholm - Åkeshov'
     delays.push({
       scheduled: o.scheduled,
       station: station,

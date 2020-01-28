@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState } from 'react'
 import './style/RouteSelection.scss'
 import SelectionItem from './SelectionItem'
 import { InfoTabContext } from './InfoTabContext'
@@ -32,7 +32,25 @@ export default function RouteSelection({ delays }) {
     }
     setLoaded(true)
   }
-  if (delays && !loaded) loadItems()
 
-  return <div className="RouteSelection">{selectionItems}</div>
+  if (delays && !loaded) loadItems()
+  return (
+    <div className="RouteSelection">
+      <span
+        className="upArrow"
+        onClick={e => {
+          e.currentTarget.parentElement.scrollBy(0, -75)
+        }}
+      ></span>
+
+      {selectionItems}
+
+      <span
+        className="downArrow"
+        onClick={e => {
+          e.currentTarget.parentElement.scrollBy(0, 75)
+        }}
+      ></span>
+    </div>
+  )
 }
