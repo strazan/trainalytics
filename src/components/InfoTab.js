@@ -1,20 +1,16 @@
-import React from 'react'
-import Log from './Log'
-import './style/InfoTab.scss'
+import React from "react";
+import Log from "./Log";
+import "./style/InfoTab.scss";
 
-<<<<<<< Updated upstream
-export default function InfoTab() {
-=======
 export default function InfoTab({ activeDelay }) {
->>>>>>> Stashed changes
   return (
     <div
-      style={{ width: '22rem', height: '100vh', backgroundColor: '#f2f2f2' }}
+      style={{ width: "22rem", height: "100vh", backgroundColor: "#f2f2f2" }}
     >
       <p className="text-header text-color-primary">Header</p>
       <p className="text-normal text-color-primary">Normal</p>
       <p className="text-small text-color-gray">This is a paragraph</p>
       <Log />
     </div>
-  )
+  );
 }
