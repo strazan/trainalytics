@@ -3,7 +3,6 @@ import './App.css'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'
-import { InfoTabContext } from './components/InfoTabContext'
 import Clock from './components/Clock'
 const axios = require('axios').default
 

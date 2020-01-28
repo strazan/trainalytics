@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import './style/RouteSelection.scss'
 import SelectionItem from './SelectionItem'
-import { InfoTabContext } from './InfoTabContext'
 
 export default function RouteSelection({ delays, setActiveDelay }) {
   const [selectionItems, setSelectionItems] = useState()
   const [loaded, setLoaded] = useState(false)
-  const { activedelay, setclickdelay, index, setIndex } = useContext(
-    InfoTabContext
-  )
 
   const setActive = i => {
     setActiveDelay(delays.data[i])
