@@ -1,1 +1,30 @@
 @import './../../base/index.scss';
+
+.active {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.top-margin-40 {
+  margin-top: 40px;
+}
+
+.infoDiv {
+  border: 1px solid $primary-gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.vertical-align {
+  vertical-align: middle;
+}
