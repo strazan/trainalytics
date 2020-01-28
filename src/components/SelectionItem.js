@@ -13,10 +13,10 @@ export default function SelectionItem({ route, isOnTime, setActive, index }) {
         <p className="text-normal text-color-gray">{route}</p>
       </div>
       <span
-        className={isOnTime ? 'background-color-green' : 'background-color-red'}
+        className={isOnTime ? 'background-color-red' : 'background-color-green'}
       ></span>
       <p className="isOnTime text-normal text-color-gray ">
-        {isOnTime ? 'On time' : 'Delayed'}
+        {isOnTime ? 'Delayed' : 'On time'}
       </p>
     </div>
   )
