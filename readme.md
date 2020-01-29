@@ -11,7 +11,7 @@
  yarn slap
  ```
  
-  ### SAP   <img src="https://vignette.wikia.nocookie.net/finalfantasy/images/c/ce/FFXIII_enemy_Flandragora.png/revision/latest/top-crop/width/360/height/450?cb=20140221141334" height="30" width="30"></img>
+  ### SAP   <img src="https://vignette.wikia.nocookie.net/finalfantasy/images/c/ce/FFXIII_enemy_Flandragora.png/revision/latest/top-crop/width/360/height/450?cb=20140221141334" height="30" width="30"></img> (SmAll Pp)
  ##### npm
  ```
  npm install
