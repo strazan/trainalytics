@@ -1,4 +1,11 @@
 @import './../../base/index.scss';
+@import './../../base/_text.scss';
+
+.infoTab {
+  width: '22rem';
+  height: '100vh';
+  background-color: '#f2f2f2';
+}
 
 .active {
   display: inline-block;
@@ -15,7 +22,7 @@
 .infoDiv {
   border: 1px solid $primary-gray;
   border-radius: 10px;
-  padding: 10px;
+  padding-top: 16px;
   margin: 10px;
   display: flex;
   justify-content: space-around;
@@ -23,5 +30,14 @@
 
 .flex-row {
   flex-direction: row;
+}
+
+.vertical-align {
+  position: relative;
   vertical-align: middle;
+  top: calc(50% - 1.2rem);
+}
+
+.infoDiv-shadow {
+  box-shadow: 3px 5px 12px rgba(58, 31, 31, 0.25);
 }
