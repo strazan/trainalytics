@@ -97,3 +97,9 @@ $drop-shadow-color: #a6a6a6;
 .background-color-purple {
   background-color: $purple;
 }
+
+//Shadow
+
+.sidenav-shadow {
+  box-shadow: 10px 0px 20px rgba(166, 166, 166, 0.25);
+}

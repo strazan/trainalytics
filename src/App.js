@@ -16,7 +16,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Map delays={delays} />
+      <Map delays={delays} activeDelay={activeDelay} />
       <div
         style={{
           position: 'fixed',

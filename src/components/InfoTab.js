@@ -1,7 +1,7 @@
 import React from 'react'
 import Log from './Log'
+import Clock from './Clock'
 import './style/InfoTab.scss'
-import ReactClock from 'react-live-clock'
 
 export default function InfoTab({ activeDelay }) {
   console.log(activeDelay)
