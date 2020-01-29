@@ -3,11 +3,13 @@
  ##### npm
  ```
  npm install
+ chmod +x sap.sh
  npm run sap
  ```
  ##### yarn
   ```
- yarn install
+yarn install
+ chmod +x sap.sh
  yarn sap
  ```
  
