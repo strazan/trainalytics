@@ -2,16 +2,26 @@ import React, { useState } from 'react'
 import './style/RouteSelection.scss'
 import SelectionItem from './SelectionItem'
 
-export default function RouteSelection({ delays }) {
+export default function RouteSelection({ delays, setActiveDelay }) {
   const [selectionItems, setSelectionItems] = useState()
   const [loaded, setLoaded] = useState(false)
 
+  const setActive = i => {
+    setActiveDelay(delays.data[i])
+  }
   function loadItems() {
     if (!loaded) {
-      console.log(delays)
       const items = delays.data.map((delay, i) => {
         const onTime = parseInt(delay.predicted_delay_minutes) ? true : false
-        return <SelectionItem key={i} route={delay.route} isOnTime={onTime} />
+        return (
+          <SelectionItem
+            index={i}
+            key={i}
+            route={delay.route}
+            isOnTime={onTime}
+            setActive={setActive}
+          />
+        )
       })
       setSelectionItems(items)
     }
