@@ -1,11 +1,24 @@
-1. Clone / Download
-
-2. `npm i`
-
-3. Start terminal.app
-
-4. `yarn server` or `npm run server`
-
-5. Open new terminal tab/window
-
-6. `yarn start` or `npm start`
+ # Trainalytics
+ ### SLAP   <img src="https://raw.githubusercontent.com/naminho/instl/master/logo.svg?sanitize=true" height="30" width="30"></img>
+ ##### npm
+ ```
+ npm install
+ npm run slap
+ ```
+ ##### yarn
+  ```
+ yarn install
+ yarn slap
+ ```
+ 
+  ### SAP   <img src="https://vignette.wikia.nocookie.net/finalfantasy/images/c/ce/FFXIII_enemy_Flandragora.png/revision/latest/top-crop/width/360/height/450?cb=20140221141334" height="30" width="30"></img>
+ ##### npm
+ ```
+ npm install
+ npm run sap
+ ```
+ ##### yarn
+  ```
+ yarn install
+ yarn sap
+ ```
