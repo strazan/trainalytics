@@ -35,12 +35,9 @@ function getPosition(signature) {
   )
   let stringPos = ''
   pos && pos[0] ? (stringPos = pos[0].Geometry.WGS84) : (stringPos = '')
-  let lnglat = stringPos.slice(7, stringPos.length)
-  let lng = parseFloat(lnglat.split(' ')[0])
-  let lat = parseFloat(lnglat.split(' ')[1])
-  console.log(lng, lat)
-
-  // let lat = parseFloat(stringPos.slice(26, 44))
+  let lngLat = stringPos.slice(7, stringPos.length)
+  let lng = parseFloat(lngLat.split(' ')[0])
+  let lat = parseFloat(lngLat.split(' ')[1])
   return { longitude: lng, latitude: lat }
 }
 
