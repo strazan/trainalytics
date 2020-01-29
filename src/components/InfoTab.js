@@ -1,7 +1,7 @@
 import React from 'react'
 import Log from './Log'
 import './style/InfoTab.scss'
-import Clock from 'react-live-clock'
+import ReactClock from 'react-live-clock'
 
 export default function InfoTab({ activeDelay }) {
   console.log(activeDelay)
@@ -17,7 +17,7 @@ export default function InfoTab({ activeDelay }) {
       <div className="infoDiv">
         <div className="flex-row">
           <p className="text-normal text-color-gray">
-            <Clock format={'HH : mm'} ticking={false} />
+            <ReactClock format={'HH : mm'} ticking={true} />
           </p>
         </div>
         <div className="flex-row">
