@@ -1,0 +1,15 @@
+.marker {
+  height: 20px;
+  width: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+.marker-green {
+  background-image: url('../../assets/images/marker-green.svg');
+}
+.marker-red {
+  background-image: url('../../assets/images/marker-red.svg');
+}

@@ -2,7 +2,7 @@ $primary-black: #222431;
 $secondary-black: #292b3c;
 $primary-white: #f8f8f8;
 $secondary-white: #f2f2f2;
-$primary-gray: #bdbdbd;
+$primary-gray: #b1b1b1;
 $secondary-gray: #e0e0e0;
 $red: #eb5757;
 $orange: #f2994a;
@@ -10,14 +10,22 @@ $yellow: #f2c94c;
 $green: #27ae60;
 $blue: #2f80ed;
 $purple: #9b51e0;
+$light-gray: #c4c4c4;
 $i-Btn-color: #272f4a;
 $drop-shadow-color: #a6a6a6;
+$primary-box-shadow: 10px 0px 20px rgba(166, 166, 166, 0.25);
 
 .background-primary {
   background-color: $secondary-white;
 }
 .background-light {
   background-color: $primary-white;
+}
+.background-green {
+  background-color: $green;
+}
+.background-red {
+  background-color: $red;
 }
 .info-btn-color {
   background-color: $i-Btn-color;
@@ -40,6 +48,9 @@ $drop-shadow-color: #a6a6a6;
 }
 .text-color-gray {
   color: $primary-gray;
+}
+.text-color-light-gray {
+  color: $light-gray;
 }
 
 //SideNav color change
@@ -86,4 +97,10 @@ $drop-shadow-color: #a6a6a6;
 }
 .background-color-purple {
   background-color: $purple;
+}
+
+//Shadow
+
+.sidenav-shadow {
+  box-shadow: 10px 0px 20px rgba(166, 166, 166, 0.25);
 }

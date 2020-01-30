@@ -1,0 +1,92 @@
+@import '../../base/_color.scss';
+@import '../../base/_text.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.HelpTab {
+  #toggler {
+    position: absolute;
+    bottom: 5rem;
+    right: -20rem;
+    z-index: 100;
+    border: none;
+    border-radius: 50%;
+    // visibility: hidden;
+    width: 3rem;
+    height: 3rem;
+    // opacity: 0;
+    &:checked + .HelpTabContainer {
+      visibility: visible;
+    }
+  }
+
+  .InfoSymbol {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    z-index: 99;
+    font-size: 3rem;
+    outline: none;
+
+    &:hover {
+      text-shadow: 0px 0 5px rgba(85, 85, 85, 0.3);
+      color: white;
+      transition: 0.1s linear ease-in-out;
+    }
+  }
+  .HelpTabContainer {
+    height: auto;
+    visibility: hidden;
+    width: 290px;
+    background: $secondary-white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 10rem;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    right: 3.25rem;
+    align-items: left;
+    &:hover {
+      transition: 0.05s ease;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .RouteSelection {
+      height: 8rem;
+      width: 90%;
+      margin-bottom: 0rem;
+      p {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      &:after {
+        position: relative;
+        margin-top: 2rem;
+        content: '';
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 2px;
+        width: 100%;
+      }
+    }
+    .InfoTab {
+      height: 10rem;
+      width: 90%;
+      margin: 3rem auto;
+      p {
+        color: rgba(0, 0, 0, 0.5);
+      }
+      &:after {
+        position: relative;
+        margin-top: 2rem;
+        content: '';
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 2px;
+        width: 100%;
+      }
+    }
+  }
+}

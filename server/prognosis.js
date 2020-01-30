@@ -1,5 +1,9 @@
 const _stations = require('./stations.json').TrainStation
 const puppeteer = require('puppeteer')
+const redis = require('redis'),
+  client = redis.createClient()
+const util = require('util')
+const getAsync = util.promisify(client.get).bind(client)
 
 async function getPrognosis(obj) {
   const trainNumbers = obj.prognosis.map(train => train.trainnr)
@@ -10,6 +14,7 @@ async function getPrognosis(obj) {
   for await (const [i, o] of enumerate(obj.prognosis)) {
     const station = getStation(trainSignatures[i])
     const pos = getPosition(trainSignatures[i])
+
     const route = await getRoute(trainNumbers[i])
     delays.push({
       scheduled: o.scheduled,
@@ -30,27 +35,35 @@ function getPosition(signature) {
   )
   let stringPos = ''
   pos && pos[0] ? (stringPos = pos[0].Geometry.WGS84) : (stringPos = '')
-  let lng = parseFloat(stringPos.slice(7, 25))
-  let lat = parseFloat(stringPos.slice(26, 44))
+  let lngLat = stringPos.slice(7, stringPos.length)
+  let lng = parseFloat(lngLat.split(' ')[0])
+  let lat = parseFloat(lngLat.split(' ')[1])
   return { longitude: lng, latitude: lat }
 }
 
 async function getRoute(trainNumber) {
-  const [browser, page] = await getBrowserPage(
-    `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200128&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
-  )
-  const data = await page.evaluate(() => {
-    const from = document.querySelector('table tr td a')
-      ? document.querySelector('table tr td a').innerHTML
-      : ''
-    const to = document.querySelector('table tr:last-child td a')
-      ? document.querySelector('table tr:last-child td a').innerHTML
-      : ''
+  const res = await getAsync(trainNumber)
 
-    return `${from} - ${to}`
-  })
-  browser.close()
-  return data
+  if (res !== null) {
+    return res
+  } else {
+    const [browser, page] = await getBrowserPage(
+      `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200128&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
+    )
+    const data = await page.evaluate(() => {
+      const from = document.querySelector('table tr td a')
+        ? document.querySelector('table tr td a').innerHTML
+        : ''
+      const to = document.querySelector('table tr:last-child td a')
+        ? document.querySelector('table tr:last-child td a').innerHTML
+        : ''
+
+      return `${from} - ${to}`
+    })
+    client.set(trainNumber, data)
+    await browser.close()
+    return data
+  }
 }
 
 function getStation(signature) {

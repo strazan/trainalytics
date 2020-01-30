@@ -24,10 +24,10 @@ export default function LogItem({
 
   return (
     <div className="LogItem">
-      <h2>{logTime}</h2>
-      <h1>{scheduled}</h1>
-      <h1>{`${predicted_delay_minutes} min`}</h1>
-      <h1 className={accuracyColor}>{accuracy}</h1>
+      <h2 className="text-large text-color-light-gray">{logTime}</h2>
+      <h1 className="text-large text-color-gray">{scheduled}</h1>
+      <h1 className="text-large text-color-gray">{`${predicted_delay_minutes} min`}</h1>
+      <h1 className={('text-large', accuracyColor)}>{accuracy}</h1>
     </div>
   )
 }

@@ -3,11 +3,13 @@ import './App.css'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'
+import HelpTab from './components/HelpTab'
 import Clock from './components/Clock'
 const axios = require('axios').default
 
 function App() {
   const [delays, setDelays] = useState()
+  const [activeDelay, setActiveDelay] = useState()
   useEffect(() => {
     axios.get('http://localhost:8000/delay').then(response => {
       setDelays(response)
@@ -15,15 +17,25 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Map />
-      <div style={{ position: 'fixed', top: '0', left: '0', display: 'flex', width:'100%' }}>
-        <SideNav delays={delays} />
-        <InfoTab />
+      <Map delays={delays} activeDelay={activeDelay} />
+      <div
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          display: 'flex',
+          width: '100%'
+        }}
+      >
+        <SideNav delays={delays} setActiveDelay={setActiveDelay} />
+        <InfoTab activeDelay={activeDelay} />
         <Clock />
+        <HelpTab />
       </div>
-   
     </div>
   )
 }
 
 export default App
+
+// this.props.setclicked.bind(delay.station)
