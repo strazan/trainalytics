@@ -3,6 +3,7 @@ import './App.css'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'
+import HelpTab from './components/HelpTab'
 import Clock from './components/Clock'
 const axios = require('axios').default
 
@@ -29,6 +30,7 @@ function App() {
         <SideNav delays={delays} setActiveDelay={setActiveDelay} />
         <InfoTab activeDelay={activeDelay} />
         <Clock />
+        <HelpTab />
       </div>
     </div>
   )
