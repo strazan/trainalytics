@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
-import ReactMapGL from 'react-map-gl'
+import ReactMapGL, { FlyToInterpolator } from 'react-map-gl'
+
+// import d3 from 'd3-ease'
 import './style/Map.scss'
 import DelayMarkers from './DelayMarkers'
 
@@ -27,11 +29,14 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
 
   useEffect(() => {
     if (activeDelay && activeDelay.pos.latitude) {
-      map.current.getMap().flyTo({
-        center: [activeDelay.pos.longitude, activeDelay.pos.latitude],
-        zoom: 10,
-        speed: 0.8,
-        essential: true
+      setViewport({
+        ...viewport,
+        longitude: activeDelay.pos.longitude,
+        latitude: activeDelay.pos.latitude,
+        zoom: 11,
+        transitionDuration: 2000,
+        transitionInterpolator: new FlyToInterpolator()
+        // transitionEasing: d3.easeCubic
       })
     }
   }, [activeDelay])
