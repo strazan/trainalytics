@@ -17,7 +17,11 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Map delays={delays} activeDelay={activeDelay} />
+      <Map
+        delays={delays}
+        activeDelay={activeDelay}
+        setActiveDelay={setActiveDelay}
+      />
       <div className="wrapper">
         <SideNav delays={delays} setActiveDelay={setActiveDelay} />
         <InfoTab activeDelay={activeDelay} />

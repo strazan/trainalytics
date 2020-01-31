@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Marker } from 'react-map-gl'
 import './style/DelayMarkers.scss'
 
-export default function DelayMarkers({ delays }) {
+export default function DelayMarkers({ delays, setActiveDelay }) {
   const [delayMarkers, setDelayMarkers] = useState()
   const [printedDelays, setPrintedDelays] = useState()
 
@@ -18,7 +18,12 @@ export default function DelayMarkers({ delays }) {
           longitude={delay.pos.longitude}
           latitude={delay.pos.latitude}
         >
-          <div className={className}></div>
+          <div
+            onClick={() => {
+              setActiveDelay(delays.data[i])
+            }}
+            className={className}
+          ></div>
         </Marker>
       ) : (
         ''
