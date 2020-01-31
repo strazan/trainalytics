@@ -3,7 +3,7 @@ import ReactMapGL from 'react-map-gl'
 import './style/Map.scss'
 import DelayMarkers from './DelayMarkers'
 
-export default function Map({ delays, activeDelay }) {
+export default function Map({ delays, activeDelay, setActiveDelay }) {
   const MAPBOX_TOKEN =
     'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
   const [viewport, setViewport] = useState({
@@ -43,7 +43,7 @@ export default function Map({ delays, activeDelay }) {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      <DelayMarkers delays={delays} />
+      <DelayMarkers delays={delays} setActiveDelay={setActiveDelay} />
     </ReactMapGL>
   )
 }
