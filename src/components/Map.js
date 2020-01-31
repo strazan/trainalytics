@@ -7,14 +7,23 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
   const MAPBOX_TOKEN =
     'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
     latitude: 59.334591,
     longitude: 11.06324,
     zoom: 5.4,
     pitch: 40
   })
+
   const map = useRef(null)
+
+  useEffect(() => {
+    map.current.getMap().on('moveend', event => {
+      setViewport({
+        longitude: map.current.getMap().getCenter().lng,
+        latitude: map.current.getMap().getCenter().lat,
+        zoom: map.current.getMap().getZoom()
+      })
+    })
+  }, [])
 
   useEffect(() => {
     if (activeDelay && activeDelay.pos.latitude) {
@@ -22,16 +31,10 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
         center: [activeDelay.pos.longitude, activeDelay.pos.latitude],
         zoom: 10,
         speed: 0.8,
-        easing: function(t) {
-          return t
-        },
         essential: true
       })
     }
   }, [activeDelay])
-
-  // const [focusedDelay, setFocusedDelay] = useState();
-  // if (pressedDelay !== focusedDelay) setFocusedDelay(pressedDelay);
 
   return (
     <ReactMapGL
