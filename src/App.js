@@ -18,20 +18,12 @@ function App() {
   return (
     <div className="App">
       <Map delays={delays} activeDelay={activeDelay} />
-      <div
-        style={{
-          position: 'fixed',
-          top: '0',
-          left: '0',
-          display: 'flex',
-          width: '100%'
-        }}
-      >
+      <div className="wrapper">
         <SideNav delays={delays} setActiveDelay={setActiveDelay} />
         <InfoTab activeDelay={activeDelay} />
-        <Clock />
-        <HelpTab />
       </div>
+      <Clock />
+      <HelpTab />
     </div>
   )
 }
