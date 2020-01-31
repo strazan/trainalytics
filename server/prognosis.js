@@ -48,7 +48,7 @@ async function getRoute(trainNumber) {
     return res
   } else {
     const [browser, page] = await getBrowserPage(
-      `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200128&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
+      `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200130&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
     )
     const data = await page.evaluate(() => {
       const from = document.querySelector('table tr td a')
