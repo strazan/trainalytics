@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'

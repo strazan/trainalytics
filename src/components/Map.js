@@ -20,7 +20,7 @@ export default function Map({ delays, activeDelay }) {
     if (activeDelay && activeDelay.pos.latitude) {
       map.current.getMap().flyTo({
         center: [activeDelay.pos.longitude, activeDelay.pos.latitude],
-        zoom: 11,
+        zoom: 10,
         speed: 0.8,
         easing: function(t) {
           return t
