@@ -6,7 +6,7 @@ osascript -e 'tell application "Terminal"' \
 
 open -a Terminal "`pwd`"
 osascript -e 'tell application "Terminal"' \
--e "do script \"nodemon server/main\" in selected tab of the front window" \
+-e "do script \"npx nodemon server/main\" in selected tab of the front window" \
 -e 'end tell'
 
 open -a Terminal "`pwd`"
