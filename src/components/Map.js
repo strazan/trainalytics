@@ -6,8 +6,7 @@ import './style/Map.scss'
 import DelayMarkers from './DelayMarkers'
 
 export default function Map({ delays, activeDelay, setActiveDelay }) {
-  const MAPBOX_TOKEN =
-    'pk.eyJ1Ijoic3RyYXphbjEiLCJhIjoiY2s1aDQwcDV3MDc4MjNkbzFyc3g5azBrOCJ9.qThW1EzHhwgWPuJ26GwWBg'
+  const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_API_KEY
   const [viewport, setViewport] = useState({
     latitude: 59.334591,
     longitude: 11.06324,
