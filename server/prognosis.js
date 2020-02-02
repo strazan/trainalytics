@@ -1,9 +1,9 @@
 const _stations = require('./stations.json').TrainStation
 const puppeteer = require('puppeteer')
-const redis = require('redis'),
-  client = redis.createClient()
-const util = require('util')
-const getAsync = util.promisify(client.get).bind(client)
+// const redis = require('redis'),
+// client = redis.createClient()
+// const util = require('util')
+// const getAsync = util.promisify(client.get).bind(client)
 
 async function getPrognosis(obj) {
   const trainNumbers = obj.prognosis.map(train => train.trainnr)
@@ -42,29 +42,29 @@ function getPosition(signature) {
 }
 
 async function getRoute(trainNumber) {
-  const res = await getAsync(trainNumber)
+  // const res = await getAsync(trainNumber)
 
-  if (res !== null) {
-    return res
-  } else {
-    const [browser, page] = await getBrowserPage(
-      `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200128&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
-    )
-    const data = await page.evaluate(() => {
-      const from = document.querySelector('table tr td a')
-        ? document.querySelector('table tr td a').innerHTML
-        : ''
-      const to = document.querySelector('table tr:last-child td a')
-        ? document.querySelector('table tr:last-child td a').innerHTML
-        : ''
+  // if (res !== null) {
+  //   return res
+  // } else {
+  const [browser, page] = await getBrowserPage(
+    `http://xn--avgng-ora.nu/Details.aspx?tripdate=20200128&tripid=${trainNumber}&refresh=30&provider=Trafikverket`
+  )
+  const data = await page.evaluate(() => {
+    const from = document.querySelector('table tr td a')
+      ? document.querySelector('table tr td a').innerHTML
+      : ''
+    const to = document.querySelector('table tr:last-child td a')
+      ? document.querySelector('table tr:last-child td a').innerHTML
+      : ''
 
-      return `${from} - ${to}`
-    })
-    client.set(trainNumber, data)
-    await browser.close()
-    return data
-  }
+    return `${from} - ${to}`
+  })
+  // client.set(trainNumber, data)
+  await browser.close()
+  return data
 }
+// }
 
 function getStation(signature) {
   const stationName = _stations.filter(
