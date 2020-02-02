@@ -43,7 +43,11 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      <DelayMarkers delays={delays} setActiveDelay={setActiveDelay} />
+      <DelayMarkers
+        onMouseOver=""
+        delays={delays}
+        setActiveDelay={setActiveDelay}
+      />
     </ReactMapGL>
   )
 }
