@@ -4,7 +4,6 @@ import ReactClock from 'react-live-clock'
 import './style/InfoTab.scss'
 
 export default function InfoTab({ activeDelay }) {
-  console.log(activeDelay)
   let delayColor
   if (activeDelay) {
     switch (activeDelay.predicted_delay_accuracy) {
@@ -21,6 +20,7 @@ export default function InfoTab({ activeDelay }) {
         delayColor = 'text-color-primary text-normal'
     }
   }
+
   return (
     <div
       className={
@@ -30,7 +30,7 @@ export default function InfoTab({ activeDelay }) {
       }
       style={{ width: '22rem', height: '100vh', backgroundColor: '#f2f2f2' }}
     >
-      <h1 className="text-color-primary text-header text-align-center top-margin-40">
+      <h1 className="station text-color-primary text-header text-align-center top-margin-40">
         {activeDelay ? activeDelay.station : 'station'}
       </h1>
       <hr></hr>
@@ -57,7 +57,7 @@ export default function InfoTab({ activeDelay }) {
           </p>
         </div>
       </div>
-      <Log />
+      <Log activeDelay={activeDelay} />
     </div>
   )
 }

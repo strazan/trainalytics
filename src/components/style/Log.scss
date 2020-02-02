@@ -1,14 +1,16 @@
+@import './../../base/index.scss';
+
 .log {
-  margin-top: 14rem;
+  margin-top: 2rem;
 
   &::after {
     content: '';
     position: absolute;
     height: 1px;
     vertical-align: bottom;
-    width: 30rem;
-    top: 36.5rem;
-    left: 7.7rem;
+    width: 17rem;
+    top: 24rem;
+    left: 14.7rem;
     transform: rotate(90deg);
     background-color: #bdbdbd;
   }
@@ -17,15 +19,29 @@
 .log-labels {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
 
   h6 {
     color: #858585;
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    font-family: $font-family;
+    padding-right: 0.7rem;
 
     &:first-child {
-      padding-right: 0.7rem;
+      padding-left: 1.8rem;
+      padding-right: 1.3rem;
     }
   }
+}
+
+.graph-placeholder {
+  bottom: 10px;
+  position: absolute;
+  display: block;
+  width: 280px;
+  height: 180px;
+  margin: 5%;
+  border-radius: 10px;
+  box-shadow: 3px 5px 12px rgba(58, 31, 31, 0.25);
 }
