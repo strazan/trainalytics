@@ -28,13 +28,13 @@ function useHover() {
   return [ref, hovered]
 }
 
-export default function HoverMarker({ children, longitude, latitude }) {
+export default function HoverMarker({ children, longitude, latitude, route }) {
   const [ref, hovered] = useHover()
   return (
     <div ref={ref}>
       <Marker longitude={longitude} latitude={latitude}>
         {children}
-        {hovered ? <HoverInfo /> : ''}
+        {hovered ? <HoverInfo route={route} /> : ''}
       </Marker>
     </div>
   )

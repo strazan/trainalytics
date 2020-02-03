@@ -25,6 +25,7 @@ export default function DelayMarkers({ delays, setActiveDelay }) {
           key={i}
           longitude={delay.pos.longitude}
           latitude={delay.pos.latitude}
+          route={delay.route}
         >
           <div
             onClick={() => {
