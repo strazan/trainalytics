@@ -16,15 +16,15 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
 
   const map = useRef(null)
 
-  useEffect(() => {
-    map.current.getMap().on('moveend', event => {
-      setViewport({
-        longitude: map.current.getMap().getCenter().lng,
-        latitude: map.current.getMap().getCenter().lat,
-        zoom: map.current.getMap().getZoom()
-      })
-    })
-  }, [])
+  // useEffect(() => {
+  //   map.current.getMap().on('moveend', event => {
+  //     setViewport({
+  //       longitude: map.current.getMap().getCenter().lng,
+  //       latitude: map.current.getMap().getCenter().lat,
+  //       zoom: map.current.getMap().getZoom()
+  //     })
+  //   })
+  // }, [])
 
   useEffect(() => {
     if (activeDelay && activeDelay.pos.latitude) {
@@ -50,7 +50,11 @@ export default function Map({ delays, activeDelay, setActiveDelay }) {
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
-      <DelayMarkers delays={delays} setActiveDelay={setActiveDelay} />
+      <DelayMarkers
+        onMouseOver=""
+        delays={delays}
+        setActiveDelay={setActiveDelay}
+      />
     </ReactMapGL>
   )
 }
