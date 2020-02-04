@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import Map from './components/Map'
 import SideNav from './components/SideNav'
 import InfoTab from './components/InfoTab'
@@ -17,21 +18,17 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Map delays={delays} activeDelay={activeDelay} />
-      <div
-        style={{
-          position: 'fixed',
-          top: '0',
-          left: '0',
-          display: 'flex',
-          width: '100%'
-        }}
-      >
+      <Map
+        delays={delays}
+        activeDelay={activeDelay}
+        setActiveDelay={setActiveDelay}
+      />
+      <div className="wrapper">
         <SideNav delays={delays} setActiveDelay={setActiveDelay} />
         <InfoTab activeDelay={activeDelay} />
-        <Clock />
-        <HelpTab />
       </div>
+      <Clock />
+      <HelpTab />
     </div>
   )
 }
